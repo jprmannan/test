@@ -6,7 +6,7 @@ pipeline {
                 script {
                     git branch: 'main',
                         credentialsId: 'git-login',
-                        url: 'https://github.com/username/repository.git'
+                        url: 'https://github.com/jprmannan/test.git'
                 }
             }
         }
