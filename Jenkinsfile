@@ -5,7 +5,7 @@ pipeline {
             steps {
                 script {
                     git branch: 'main',
-                        credentialsId: 'Credential ID',
+                        credentialsId: 'git-login-new',
                         url: 'https://github.com/username/repository.git'
                 }
             }
