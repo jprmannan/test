@@ -14,5 +14,10 @@ pipeline {
                     bat 'mvn clean install' // Execute Maven goals
             }
         }
+        stage('Test') {
+                steps {
+                    bat 'mvn test' // Execute Maven goals
+            }
+        }
     }
 }
