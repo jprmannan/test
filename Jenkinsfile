@@ -14,15 +14,27 @@ pipeline {
                     bat 'mvn clean install' // Execute Maven goals
             }
         }
-        stage('Test') {
+		stage('Test') {
                 steps {
                     bat 'mvn test' // Execute Maven goals
             }
         }
-        stage('Package') {
+		stage('Package') {
                 steps {
                     bat 'mvn clean package' // Execute Maven goals
             }
+        }
+	}
+	post {
+        always {
+            // Actions to perform after the build, regardless of success or failure
+            echo 'Build finished.'
+        }
+        success {
+            echo 'Build successful!'
+        }
+        failure {
+            echo 'Build failed!'
         }
     }
 }
