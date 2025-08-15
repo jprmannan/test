@@ -4,17 +4,15 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                script {
-                    git branch: 'main',
+                  git branch: 'main',
                         credentialsId: 'git-login',
                         url: 'https://github.com/jprmannan/test.git'
                 }
             }
-        }
-		stage('Build') {
-		    steps {
-			  mvn install
-			}
+        stage('Build') {
+                steps {
+                    sh 'mvn clean install' // Execute Maven goals
+            }
         }
     }
 }
