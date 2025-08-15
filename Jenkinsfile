@@ -11,7 +11,17 @@ pipeline {
             }
         stage('Build') {
                 steps {
-                    sh 'mvn clean install' // Execute Maven goals
+                    bat 'mvn clean install' // Execute Maven goals
+            }
+        }
+		stage('Test') {
+                steps {
+                    bat 'mvn test' // Execute Maven goals
+            }
+        }
+		stage('Package') {
+                steps {
+                    bat 'mvn clean package' // Execute Maven goals
             }
         }
     }
