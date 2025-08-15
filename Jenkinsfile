@@ -12,5 +12,3 @@ pipeline {
         }
     }
 }
-
-hw are you
