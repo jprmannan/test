@@ -2,13 +2,13 @@ pipeline {
     agent any
     stages {
         stage('Git Checkout') {
-            step {
+            steps {
                 script {
                     git branch: 'main',
                         credentialsId: 'git-login',
                         url: 'https://github.com/jprmannan/test.git'
-                    }
-				}
-			}
-		}
-	}		
+                }
+            }
+        }
+    }
+}
