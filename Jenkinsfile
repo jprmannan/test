@@ -19,5 +19,10 @@ pipeline {
                     bat 'mvn test' // Execute Maven goals
             }
         }
+        stage('Package') {
+                steps {
+                    bat 'mvn clean package' // Execute Maven goals
+            }
+        }
     }
 }
