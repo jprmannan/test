@@ -1,6 +1,10 @@
 
 pipeline {
     agent any
+	    environment {
+        TOMCAT_URL = 'http://localhost:8080/manager/text/deploy?path=/myapp&update=true'
+        CREDENTIALS_ID = 'tomcat-user'
+    }
     stages {
         stage('Git Checkout') {
             steps {
@@ -25,19 +29,15 @@ pipeline {
             }
         }
 	}
-	    stage('Deploy to Tomcat') {
+        stage('Deploy to Tomcat') {
             steps {
-                deploy adapters: [
-                    tomcat10(
-                        credentialsId: 'tomcat-user',
-                        url: 'http://localhost:8080'
-                    )
-                ],
-                // Deploy to the root context (accessible at /).
-                // Change to 'your-app-name' to deploy to http://host:8080/your-app-name.
-                contextPath: '',
-                war: '**/target/*.war'
+                withCredentials([usernamePassword(credentialsId: "${CREDENTIALS_ID}", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    bat """
+                    curl -u %USERNAME%:%PASSWORD% -T target\\demo-0.0.1-SNAPSHOT.war "%TOMCAT_URL%"
+                    """
+                }
             }
+        }
         }
 	post {
         always {
