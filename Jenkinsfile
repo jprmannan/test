@@ -29,13 +29,4 @@ pipeline {
             }
         }
 	}
-        stage('Deploy to Tomcat') {
-            steps {
-                withCredentials([usernamePassword(credentialsId: "${CREDENTIALS_ID}", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    bat """
-                    curl -u %USERNAME%:%PASSWORD% -T target\\demo-0.0.1-SNAPSHOT.war "%TOMCAT_URL%"
-                    """
-                }
-            }
-        }
         }
