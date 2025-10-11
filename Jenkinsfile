@@ -39,16 +39,3 @@ pipeline {
             }
         }
         }
-	post {
-        always {
-            // Actions to perform after the build, regardless of success or failure
-            echo 'Build finished.'
-        }
-        success {
-            echo 'Build successful!'
-        }
-        failure {
-            echo 'Build failed!'
-        }
-    }
-}
