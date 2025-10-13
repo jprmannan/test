@@ -4,7 +4,7 @@ pipeline {
 	    environment {
         TOMCAT_WEBAPPS = 'E:\\apache-tomcat-10.1.44\\webapps'
 		WAR_NAME = 'jv-1.0.war'
-		TOMCAT_HOME = 'E:\\apache-tomcat-10.1.44'
+		CATALINA_HOME = 'E:\\apache-tomcat-10.1.44'
         }
     stages {
         stage('Git Checkout') {
@@ -33,7 +33,7 @@ pipeline {
                 steps {
 				// Copy WAR to remote Tomcat server
                  bat 'copy target\\%WAR_NAME% "%TOMCAT_WEBAPPS%\\"'
-				 bat '"%TOMCAT_HOME%\\bin\\startup.bat"'
+				 bat '"%CATALINA_HOME%\\bin\\startup.bat"'
 				
             }
         }
