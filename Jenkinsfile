@@ -31,7 +31,7 @@ pipeline {
 		stage('Deploy to Tomcat') {
                 steps {
 				// Copy WAR to remote Tomcat server
-                 bat 'target\${WAR_NAME} ${TOMCAT_WEBAPPS}
+                 bat 'copy target\${WAR_NAME} ${TOMCAT_WEBAPPS}'
             }
         }
 	}
