@@ -3,7 +3,7 @@ pipeline {
     agent any
 	    environment {
         TOMCAT_WEBAPPS = 'E:\\apache-tomcat-10.1.44\\webapps'
-		WAR_NAME = 'jv.war'
+		WAR_NAME = 'jv-1.0.war'
         }
     stages {
         stage('Git Checkout') {
