@@ -2,7 +2,7 @@
 pipeline {
     agent any
 	    environment {
-        TOMCAT_WEBAPPS = 'E:\apache-tomcat-10.1.44\webapps'
+        TOMCAT_WEBAPPS = 'E:\\apache-tomcat-10.1.44\\webapps'
 		WAR_NAME = 'jv.war'
         }
     stages {
