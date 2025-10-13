@@ -2,9 +2,9 @@
 pipeline {
     agent any
 	    environment {
-        TOMCAT_URL = 'http://localhost:8080/manager/text/deploy?path=/myapp&update=true'
-        CREDENTIALS_ID = 'tomcat-user'
-    }
+        TOMCAT_WEBAPPS = 'E:\apache-tomcat-10.1.44\webapps
+		WAR_NAME = 'jv.war'
+        }
     stages {
         stage('Git Checkout') {
             steps {
@@ -28,5 +28,11 @@ pipeline {
                     bat 'mvn clean package' // Execute Maven goals
             }
         }
-	}
+		stage('Deploy to Tomcat') {
+                steps {
+				// Copy WAR to remote Tomcat server
+                 bat 'target\${WAR_NAME} ${TOMCAT_WEBAPPS}\
+            }
         }
+	}
+            }
