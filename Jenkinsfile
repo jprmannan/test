@@ -33,7 +33,7 @@ pipeline {
                 steps {
 				// Copy WAR to remote Tomcat server
                  bat 'copy target\\%WAR_NAME% "%TOMCAT_WEBAPPS%\\"'
-				 bat '"%CATALINA_HOME%\\bin\\catalina.bat"'
+				 bat '"%CATALINA_HOME%\\bin\\catalina.bat" start'
 				
             }
         }
