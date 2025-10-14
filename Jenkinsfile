@@ -33,8 +33,6 @@ pipeline {
                 steps {
 				// Copy WAR to remote Tomcat server
                  bat 'copy target\\%WAR_NAME% "%TOMCAT_WEBAPPS%\\"'
-				 bat '"%CATALINA_HOME%\\bin\\shutdown.bat"'
-                 bat 'timeout /t 5 >nul'  // Wait 5 seconds
 				 bat '"%CATALINA_HOME%\\bin\\catalina.bat" run'
 				
             }
