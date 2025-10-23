@@ -5,10 +5,10 @@ pipeline {
         APP_NAME = "jv-1.0"
         WAR_FILE = "target/jv-1.0.war"
         DEPLOY_SERVER = "windows-server"           // Jenkins node or remote WinRM host
-        TOMCAT_HOME_BLUE = "E:\Tomcat-blue"
-        TOMCAT_HOME_GREEN = "E:\Tomcat-green"
-        DEPLOY_DIR_BLUE = "E:\Tomcat-blue\\webapps"
-        DEPLOY_DIR_GREEN = "E:\Tomcat-green\\webapps"
+        TOMCAT_HOME_BLUE = "E:\\Tomcat-blue"
+        TOMCAT_HOME_GREEN = "E:\\Tomcat-green"
+        DEPLOY_DIR_BLUE = "E:\\Tomcat-blue\\webapps"
+        DEPLOY_DIR_GREEN = "E:\\Tomcat-green\\webapps"
         SERVICE_PORT_BLUE = "9000"
         SERVICE_PORT_GREEN = "9010"
     }
