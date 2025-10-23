@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         APP_NAME = "jv-1.0"
-        WAR_FILE = "target/jv-1.0.war"
+        WAR_FILE = "target\\jv-1.0.war"
         DEPLOY_SERVER = "windows-server"           // Jenkins node or remote WinRM host
         TOMCAT_HOME_BLUE = "E:\\Tomcat-blue"
         TOMCAT_HOME_GREEN = "E:\\Tomcat-green"
