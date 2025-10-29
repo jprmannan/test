@@ -50,9 +50,9 @@ pipeline {
             steps {
                 echo "Restarting Tomcat (Green)..."
                 bat """
-                net stop TomcatGreen
+                net stop Tomcat-green
                 timeout /t 5
-                net start TomcatGreen
+                net start Tomcat-green
                 """
             }
         }
@@ -85,7 +85,7 @@ pipeline {
             steps {
                 echo "Stopping Blue Tomcat..."
                 bat """
-                net stop TomcatBlue
+                net stop Tomcat-blue
                 """
             }
         }
