@@ -56,31 +56,6 @@ pipeline {
                 """
             }
         }
-
-        stage('Smoke Test Green') {
-            steps {
-                echo "Running smoke test on Green environment..."
-                bat 'curl -f http://localhost:%SERVICE_PORT_GREEN%/%APP_NAME%/health || exit /b 1'
-            }
-        }
-
-        stage('Switch Traffic to Green') {
-            when {
-                expression {
-                    return input(message: "Switch traffic to Green?", ok: "Yes, deploy new version")
-                }
-            }
-            steps {
-                echo "Switching traffic to Green environment..."
-                bat """
-                REM Example: Update IIS or Nginx config here if needed
-                REM Or rename Blue/Green folders to swap roles
-
-                echo Switching traffic...
-                """
-            }
-        }
-
         stage('Stop Old Blue Tomcat') {
             steps {
                 echo "Stopping Blue Tomcat..."
@@ -89,7 +64,6 @@ pipeline {
                 """
             }
         }
-
         stage('Cleanup Old Blue WAR') {
             steps {
                 echo "Cleaning up old Blue deployment..."
