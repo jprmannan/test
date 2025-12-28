@@ -3,10 +3,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>jp</groupId>
-  <artifactId>jp</artifactId>
+  <artifactId>jv</artifactId>
   <version>1.0</version>
-  <packaging>jar</packaging>
-
+  <packaging>war</packaging>
   <name>demo</name>
   <url>http://maven.apache.org</url>
 
